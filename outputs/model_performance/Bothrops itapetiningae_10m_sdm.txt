@@ -1,0 +1,29 @@
+class                                 : sdmModels 
+======================================================== 
+number of species                     :  1 
+number of modelling methods           :  3 
+names of modelling methods            :  glm, rf, bioclim 
+replicate.methods (data partitioning) :  bootstrap 
+number of replicates (each method)    :  10 
+toral number of replicates per model  :  10 (per species) 
+------------------------------------------
+model run success percentage (per species)  :
+------------------------------------------
+method          Occurrence       
+---------------------- 
+glm        :        100   %
+rf         :        100   %
+bioclim    :        100   %
+
+###################################################################
+model Mean performance (per species), using test dataset (generated using partitioning):
+-------------------------------------------------------------------------------
+
+ ## species   :  Occurrence 
+=========================
+
+methods    :     AUC     |     COR     |     TSS     |     Deviance 
+-------------------------------------------------------------------------
+glm        :     0.87    |     0.45    |     0.7     |     0.62     
+rf         :     0.97    |     0.78    |     0.84    |     0.33     
+bioclim    :     0.8     |     0.57    |     0.57    |     0.88     

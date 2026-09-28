@@ -1,0 +1,20 @@
+********************************************** 
+ Beginning Spatial Thinning.
+ Script Started at: Wed Nov 12 11:11:33 2025
+
+Thinning Parameter Used (in km): 20
+Number of replicates of thinning script: 10
+
+Elapsed time for thinning completion
+0.02 0.02 0.04 NA NA
+
+Number of data.frames per locations retained
+loc.cnt df.freq
+87	88
+5	5
+Maximum number of records after thinning: 88
+Number of data.frames with max records: 5
+
+**New *.csv file creation:**
+Writing new *.csv files to output directory: C:/Users/marce/OneDrive/Marcela Brasil - Academia/Bothrops/repositorio/data/processed/occurrences_thin
+Writing file: C:/Users/marce/OneDrive/Marcela Brasil - Academia/Bothrops/repositorio/data/processed/occurrences_thin/Bothrops itapetiningae_thin1.csv

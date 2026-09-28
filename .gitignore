@@ -1,0 +1,22 @@
+# Arquivos de sistema (ex: macOS)
+.DS_Store
+
+# Arquivos e pastas temporárias do R/RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Pastas de dados pesados (coloque a barra / no final para ignorar a pasta inteira)
+data/processed/predictors/
+data/raw/predictors/
+
+outputs/raster*
+
+# Extensões de arquivos grandes que devem ser ignoradas em qualquer lugar
+
+southamerica_topo.tif
+alternatus_topo.csv
+*.tif
+*.gpkg
+*.shp

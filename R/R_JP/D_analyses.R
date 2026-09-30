@@ -3,7 +3,7 @@
 
 library(lmerTest)
 
-m <- lmerTest::lmer(latitude ~ scenario * spGroup + (1 | species), data = centroids)
+m <- lmerTest::lmer(latitude ~ scenario * spGroup + (1 | species), data = centroids) #centroids in R_data line 35
 anova(m)
 
 m2 <- lmerTest::lmer(latitude ~ scenario + spGroup + (1 | species), data = centroids)
@@ -12,18 +12,9 @@ anova(m, m2) # significant, do not remove interaction
 summary(m)
 
 # does suitable area decreases with climate change? -----------------------
-
-areas$scenario <- factor(areas$scenario, # area in R_data line 33
-                        levels = c(
-                                 "present",
-                                 "future_11",
-                                 "future_12",
-                                 "future_21",
-                                 "future_22")
-                        ) 
-
 library(lmerTest)
 
+# areas in R_data line 36
 areas$species <- factor(areas$species, levels = c("Bothrops fonsecai", "Bothrops cotiara", "Bothrops itapetiningae", "Bothrops alternatus"))
 areas$scenario <- factor(areas$scenario, levels = c("present","future_11", "future_12", "future_21", "future_22"))
 areas$spGroups <- factor(areas$spGroup, levels = c("Forest & Mountain","Open Areas & Plateau"))
@@ -41,35 +32,7 @@ anova(mod_misto2, mod_misto3) # keep model with species groups model 2
 
 summary(mod_misto2)
 
-# extracting predictions --------------------------------------------------
+# does suitable areas change in elevation with climate change -------------
+library(lmerTest)
 
-newdat <- expand.grid(
-  scenario = unique(areas$scenario),
-  species = unique(areas$species)
-)
 
-newdat$pred_log <- predict(mod_misto, newdata = newdat, re.form = ~(1|species))
-newdat$pred_area <- exp(newdat$pred_log)
-
-  
-library(ggplot2)
-
-ggplot(
-  newdat,
-  aes(
-    x = year,
-    y = pred_area,
-    color = species,
-    group = interaction(species, futureScenario),
-    linetype = futureScenario
-  )
-) +
-  geom_line(linewidth = 1) +
-  geom_point(size = 3) +
-  theme_bw() +
-  labs(
-    x = "Year",
-    y = "Predicted Area (km²)",
-    color = "Species",
-    linetype = "Scenario"
-  )
